@@ -1,7 +1,11 @@
-Vue.component('myButton2',{
-    template:`
-    
-        <button class="btn btn-success" @click="counter++">Deneme2</button>
-    
-    `
-})
+Vue.component("mybutton2", {
+  props: ["title"],
+  template: `
+          <button class="btn btn-primary">{{title}}</button>
+      `
+  // data: function() {
+  //   return {
+  //     text: "aaa"
+  //   };
+  // }
+});

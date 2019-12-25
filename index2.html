@@ -9,31 +9,35 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
-    <script src="./components/button.js"></script>
-    <script src="./components/button2.js"></script>
+    <script src="./components/list.js"></script>
+    <script src="./components/list2.js"></script>
 
     <title>Document</title>
 </head>
 
 <body>
     <div id="app">
-        <mybutton :text="text" @mybutton-clicked="mybuttonClickedHandle"></mybutton>
-        <mybutton2 :title="title"></mybutton2>
+        <mylist :id="siteid" :selectedid="list1selectedid" @list-item-changed="listItemClickedHandle">
+        </mylist>
+        <mylist2 :id="siteid" :selectedid="list1selectedid"></mylist2>
     </div>
 
     <script>
 
-        new Vue({
+        // var eventHub = new Vue();
+
+        var app = new Vue({
             el: '#app',
             data: function () {
                 return {
-                    text: "deneme",
-                    title: "deneme2"
+                    siteid: -1,
+                    list1selectedid: null
                 }
             },
             methods: {
-                mybuttonClickedHandle: function (val) {
-                    this.title = val;
+                listItemClickedHandle: function (id) {
+                    console.log("list1selectedid", id);
+                    this.list1selectedid = id;
                 }
             }
         })
